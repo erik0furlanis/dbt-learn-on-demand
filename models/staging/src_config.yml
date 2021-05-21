@@ -18,4 +18,12 @@ sources:
           description: 0 if SKU is NOT Available on Webshop, 1 if SKU is Available on Webshop
           tests:
           - not_null
+          - accepted_values:
+              values: [0,1]
+        - name: cfc_id_atp
+          description: CFC where ATP is measured at
+          tests:
+          - not_null
+          - accepted_values:
+              values: [1,2,3,4,6,7,8]
       
