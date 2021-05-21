@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: STAG
+    description: Staging dataset for various KPI metrics
+    database: rsh-ops-central-us-scanalytics
+    tables:
+      - name: customers
+      - name: orders
+      - name: ATP_daily_STAG
+        description: Staging ATP daily data
+        loaded_at_field: refresh_timestamp
+        freshness:
+          warn_after: {count: 3, period: hour}
+          error_after: {count: 24, period: hour}
+        columns:
+        - name: atp_status
+          description: 0 if SKU is NOT Available on Webshop, 1 if SKU is Available on Webshop
+          tests:
+          - not_null
+      

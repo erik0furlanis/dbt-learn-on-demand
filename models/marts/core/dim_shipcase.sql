@@ -1,0 +1,1 @@
+select * from `rsh-ops-central-us-scanalytics.Gold_Standard.dimn_shipcase`
